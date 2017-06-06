@@ -27,7 +27,10 @@ default['squid']['max_file_descriptors'] = nil # Only supported for redhat platf
 default['squid']['acls_databag_name'] = 'squid_acls'
 default['squid']['hosts_databag_name'] = 'squid_hosts'
 default['squid']['urls_databag_name'] = 'squid_urls'
+
+# These are for arbitrary acls and http_access lines
 default['squid']['acls'] = []
+default['squid']['http_accesses'] = []
 
 default['squid']['package'] = 'squid'
 default['squid']['config_dir'] = '/etc/squid'
