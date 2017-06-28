@@ -33,6 +33,7 @@ default['squid']['acls'] = []
 default['squid']['http_accesses'] = []
 
 default['squid']['package'] = 'squid'
+default['squid']['use_source'] = false
 default['squid']['config_dir'] = '/etc/squid'
 default['squid']['config_include_dir'] = nil   # '/etc/squid/conf.d'
 default['squid']['config_file'] = '/etc/squid/squid.conf'
