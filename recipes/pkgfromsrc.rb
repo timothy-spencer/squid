@@ -11,7 +11,7 @@ execute 'unzip scripts.squid3.zip' do
 end
 
 %w{ 02_tools.sh  03_build_ecap.sh  04_install_ecap.sh  05_build_squid.sh  06_install_squid.sh }.each do |s|
-  execute "./#{s}" do
+  execute "/bin/sh ./#{s}" do
     cwd "#{Chef::Config['file_cache_path']}/scripts.squid3"
   end
 end
