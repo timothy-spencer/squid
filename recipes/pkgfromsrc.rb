@@ -6,6 +6,10 @@
 
 package 'git'
 
+directory "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
+  user 'nobody'
+end
+
 git "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
   repository 'https://github.com/diladele/squid-ubuntu'
   user 'nobody'
