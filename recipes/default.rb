@@ -128,7 +128,7 @@ service squid_service_name do
   retries 5
 end
 
-if node['squid]['enable_ssl_bump']
+if node['squid']['enable_ssl_bump']
   include_recipe squid::sslbump
 end
 
