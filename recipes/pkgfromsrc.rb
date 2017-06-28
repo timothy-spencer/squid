@@ -4,7 +4,7 @@
 # building this ourselves.  They have two patches which are safe and ought
 # to be easy to audit any time we want to.
 
-git "#{Chef::Config['file_cache_path']}/squid-ubuntu"
+git "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
   repository 'https://github.com/diladele/squid-ubuntu'
 end
 
