@@ -16,7 +16,7 @@ execute 'unzip scripts.squid3.zip' do
 end
 
 # their scripts do some silly reboots, so clean them out.
-execute 'grep -v reboot 02_tools.sh > 02_tools.sh.new ; mv 02_tools.sh.new 02_tools.sh'
+execute 'grep -v reboot 02_tools.sh > 02_tools.sh.new ; mv 02_tools.sh.new 02_tools.sh' do
     cwd "#{Chef::Config['file_cache_path']}/scripts.squid3"
 end
 
