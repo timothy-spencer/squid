@@ -129,6 +129,6 @@ service squid_service_name do
 end
 
 if node['squid']['enable_ssl_bump']
-  include_recipe squid::sslbump
+  include_recipe 'squid::sslbump'
 end
 
