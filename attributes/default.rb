@@ -69,6 +69,10 @@ default['squid']['ldap_authchildren'] = 5 # Number of LDAP threads to start
 default['squid']['ldap_authrealm']    = 'Web-Proxy' # Authentication Realm
 default['squid']['ldap_authcredentialsttl'] = '1 minute' # Credentials TTL
 
+default['squid']['enable_ssl_bump']       = false
+default['squid']['sslbumpcert']           = '/etc/squid/bumpcert.pem'
+default['squid']['sslbumpkey']            = '/etc/squid/bumpkey.pem'
+
 case node['platform_family']
 
 when 'debian'
@@ -78,6 +82,8 @@ when 'debian'
   default['squid']['log_dir'] = '/var/log/squid3'
   default['squid']['cache_dir'] = '/var/spool/squid3'
   default['squid']['coredump_dir'] = '/var/spool/squid3'
+  default['squid']['sslbumpcert']           = '/etc/squid3/bumpcert.pem'
+  default['squid']['sslbumpkey']            = '/etc/squid3/bumpkey.pem'
 
 when 'smartos'
   default['squid']['listen_interface'] = 'net0'

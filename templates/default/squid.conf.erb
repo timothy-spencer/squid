@@ -60,10 +60,16 @@ http_access allow localhost
 <%= "icp_access deny all" if node['squid']['icp_access_deny_all'] %>
 <% if node['squid']['port'].kind_of?(Array) %>
   <% node['squid']['port'].each do |port| %>
-http_port <%= port %>
+http_port <%= port %> <%= "ssl-bump generate-host-certificates=on dynamic_cert_mem_cache_size=4MB key=#{node['squid']['sslbumpkey']} cert=#{node['squid']['sslbumpcert']}" if node['squid']['enable_ssl_bump'] %>
   <% end %>
 <% else %>
-http_port <%= node['squid']['port'] %>
+http_port <%= node['squid']['port'] %> <%= "ssl-bump generate-host-certificates=on dynamic_cert_mem_cache_size=4MB key=#{node['squid']['sslbumpkey']} cert=#{node['squid']['sslbumpcert']}" if node['squid']['enable_ssl_bump'] %>
+<% end %>
+
+<% if node['squid']['enable_ssl_bump'] %>
+ssl_bump server-first all
+sslproxy_flags DONT_VERIFY_PEER
+sslproxy_cert_error deny all
 <% end %>
 
 hierarchy_stoplist cgi-bin ?
