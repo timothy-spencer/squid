@@ -36,7 +36,7 @@ Chef::Log.debug("Squid url_acls: #{url_acl}")
 Chef::Log.debug("Squid acls: #{acls}")
 
 # packages
-if (node['squid']['use_source'] == true) && (node['packages']['squid3'] == nil)
+if node['squid']['use_source'] == true
   include_recipe 'squid::pkgfromsrc'
 else
   package node['squid']['package']
