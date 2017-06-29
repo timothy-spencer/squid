@@ -7,12 +7,12 @@
 package 'git'
 
 directory "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
-  user 'nobody'
+  user 'ubuntu'
 end
 
 git "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
   repository 'https://github.com/diladele/squid-ubuntu'
-  user 'nobody'
+  user 'ubuntu'
 end
 
 # their scripts do some silly reboots, so clean them out.
@@ -27,7 +27,7 @@ end
 
 execute "/bin/bash ./03_build_ecap.sh" do
   cwd "#{Chef::Config['file_cache_path']}/squid-ubuntu/src/ubuntu14/scripts.squid3"
-  user 'nobody'
+  user 'ubuntu'
 end
 
 execute "/bin/bash ./04_install_ecap.sh" do
@@ -36,7 +36,7 @@ end
 
 execute "/bin/bash ./05_build_squid.sh" do
   cwd "#{Chef::Config['file_cache_path']}/squid-ubuntu/src/ubuntu14/scripts.squid3"
-  user 'nobody'
+  user 'ubuntu'
 end
 
 execute "/bin/bash ./06_install_squid.sh" do
