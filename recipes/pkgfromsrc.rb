@@ -81,3 +81,7 @@ directory '/var/log/squid3' do
   owner 'proxy'
 end
 
+execute '/usr/lib/squid3/ssl_crtd -c -s /var/lib/ssl_db ; chown proxy /var/lib/ssl_db' do
+  creates '/var/lib/ssl_db'
+end
+

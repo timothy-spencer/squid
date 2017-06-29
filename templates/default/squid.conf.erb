@@ -70,6 +70,7 @@ http_port <%= node['squid']['port'] %> <%= "ssl-bump generate-host-certificates=
 ssl_bump server-first all
 sslproxy_flags DONT_VERIFY_PEER
 sslproxy_cert_error deny all
+sslcrtd_program /usr/lib/squid3/ssl_crtd -s /var/lib/ssl_db -M 4MB sslcrtd_children 8 startup=1 idle=1  
 <% end %>
 
 hierarchy_stoplist cgi-bin ?
