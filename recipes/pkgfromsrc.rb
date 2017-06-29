@@ -1,4 +1,4 @@
-# XXX  This has only been tested in ubuntu 14.04.  Paths may not work on other distros/versions.
+# XXX  This has only been tested in ubuntu 14.04.  Paths/packages may not work on other distros/versions.
 
 #################################################
 # set up build dependencies
@@ -10,7 +10,7 @@ execute 'apt-get update'
   end
 end
 
-%w{ devscripts build-essential fakeroot debhelper dh-autoreconf cdbs nettle-dev libgnutls28-dev libssl-dev libdbi-perl }.each do |p|
+%w{ libpam0g-dev libldap2-dev libsasl2-dev libdb-dev cdbs debhelper libcppunit-dev libkrb5-dev comerr-dev libcap2-dev libexpat1-dev libxml2-dev autotools-dev libltdl-dev dpkg-dev pkg-config libnetfilter-conntrack-dev lsb-release devscripts build-essential fakeroot debhelper dh-autoreconf cdbs nettle-dev libgnutls28-dev libssl-dev libdbi-perl }.each do |p|
   package p
 end
 
