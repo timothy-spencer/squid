@@ -34,6 +34,8 @@ default['squid']['http_accesses'] = []
 
 default['squid']['package'] = 'squid'
 default['squid']['use_source'] = false
+default['squid']['source_tarball'] = 'http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.26.tar.gz'
+default['squid']['libecap_source_tarball'] = 'http://www.measurement-factory.com/tmp/ecap/libecap-1.0.1.tar.gz'
 default['squid']['config_dir'] = '/etc/squid'
 default['squid']['config_include_dir'] = nil   # '/etc/squid/conf.d'
 default['squid']['config_file'] = '/etc/squid/squid.conf'

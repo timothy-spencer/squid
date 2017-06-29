@@ -36,8 +36,11 @@ Chef::Log.debug("Squid url_acls: #{url_acl}")
 Chef::Log.debug("Squid acls: #{acls}")
 
 # packages
-include_recipe 'squid::pkgfromsrc' if (node['squid']['use_source'] == true) && (node['packages']['squid3'] == nil)
-package node['squid']['package']
+if (node['squid']['use_source'] == true) && (node['packages']['squid3'] == nil)
+  include_recipe 'squid::pkgfromsrc'
+else
+  package node['squid']['package']
+end
 
 ruby_block 'Detect squid version' do
   block do
