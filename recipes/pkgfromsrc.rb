@@ -70,3 +70,14 @@ execute 'make install' do
   creates "/etc/squid3/cachemgr.conf.default"
 end
 
+execute '/bin/cp tools/sysvinit/squid.rc /etc/init.d/squid3 ; chmod +x /etc/init.d/squid3' do
+  cwd squiddir
+  creates '/etc/init.d/squid3'
+end
+
+user 'proxy'
+
+directory '/var/log/squid3' do
+  owner 'proxy'
+end
+
