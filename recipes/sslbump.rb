@@ -18,6 +18,11 @@ execute "certtool --generate-self-signed --load-privkey #{squidkey} --outfile #{
   creates squidcert
 end
 
+execute "cat #{squidkey} #{squidcert} > #{squidcert}.ca" do
+  cwd squidssldir
+  creates "#{squidcert}.ca"
+end
+
 # write pubkey into node
 ruby_block 'storepubkey' do
   block do
