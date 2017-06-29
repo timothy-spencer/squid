@@ -11,14 +11,10 @@ directory "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
 end
 
 git "#{Chef::Config['file_cache_path']}/squid-ubuntu" do
-  repository 'https://github.com/diladele/squid-ubuntu'
+  repository 'https://github.com/timothy-spencer/squid-ubuntu'
   user 'ubuntu'
 end
 
-# their scripts do some silly reboots, so clean them out.
-execute 'grep -v reboot 02_tools.sh > 02_tools.sh.new ; mv 02_tools.sh.new 02_tools.sh' do
-    cwd "#{Chef::Config['file_cache_path']}/squid-ubuntu/src/ubuntu14/scripts.squid3"
-end
 
 # execute the build/install scripts (some need root, some !root)
 execute "/bin/bash ./02_tools.sh" do
