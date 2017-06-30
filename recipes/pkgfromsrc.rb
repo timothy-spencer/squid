@@ -81,8 +81,10 @@ end
 
 user 'proxy'
 
-directory '/var/log/squid3' do
-  owner 'proxy'
+%w{ /var/spool/squid3 /var/log/squid3 }.each do |d|
+  directory d do
+    owner 'proxy'
+  end
 end
 
 execute "#{node['squid']['ssl_crtd_location']} -c -s /var/lib/ssl_db ; chown proxy /var/lib/ssl_db" do
