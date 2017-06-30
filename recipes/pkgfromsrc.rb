@@ -87,6 +87,8 @@ user 'proxy'
   end
 end
 
+execute 'ldconfig /usr/local/lib'
+
 execute "#{node['squid']['ssl_crtd_location']} -c -s /var/lib/ssl_db ; chown proxy /var/lib/ssl_db" do
   creates '/var/lib/ssl_db'
 end
