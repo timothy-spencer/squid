@@ -2,7 +2,6 @@
 
 #################################################
 # set up build dependencies
-execute 'apt-get update'
 
 %w{ libecap2-dev libecap2 }.each do |p|
   package p do

@@ -4,6 +4,7 @@ squidkey = node['squid']['sslbumpkey']
 squidcert = node['squid']['sslbumpcert']
 squidssldir = node['squid']['config_dir']
 
+execute 'apt-get update'
 package 'gnutls-bin'
 
 template "#{squidssldir}/cert.cfg"
