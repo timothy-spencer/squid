@@ -73,7 +73,7 @@ sslproxy_cert_error deny all
 sslcrtd_program <%= node['squid']['ssl_crtd_location'] %> -s /var/lib/ssl_db -M 4MB sslcrtd_children 8 startup=1 idle=1  
 <% end %>
 
-hierarchy_stoplist cgi-bin ?
+<%= "hierarchy_stoplist cgi-bin ?" if @version.to_f < 3.5 %>
 
 <% node['squid']['logformats'].each do |name, format| %>
 logformat <%= name %> <%= format %>
