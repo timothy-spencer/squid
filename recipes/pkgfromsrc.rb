@@ -85,7 +85,7 @@ directory '/var/log/squid3' do
   owner 'proxy'
 end
 
-execute "#{node['squid']['ssl_crtd_path']} -c -s /var/lib/ssl_db ; chown proxy /var/lib/ssl_db" do
+execute "#{node['squid']['ssl_crtd_location']} -c -s /var/lib/ssl_db ; chown proxy /var/lib/ssl_db" do
   creates '/var/lib/ssl_db'
 end
 
