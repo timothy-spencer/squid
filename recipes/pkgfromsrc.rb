@@ -45,15 +45,6 @@ end
 #################################################
 # install modern squid using libecap
 
-# XXX This is a bit of a hack.  The squid build takes too long to build from source.  Terraform times out.
-# XXX So I tarred a build up and we unpack it here.  Do not PR this back until this is cleaned up.
-# XXX Also, hardcoded region.
-package 'awscli'
-execute "aws s3 cp s3://login-gov-shared-data/squidbuild.tar.gz #{Chef::Config['file_cache_path']}/ --region us-west-2"
-execute "tar zxpf #{Chef::Config['file_cache_path']}/squidbuild.tar.gz" do
-  cwd Chef::Config['file_cache_path']
-end
-
 remote_file "#{Chef::Config['file_cache_path']}/squid.tar.gz" do
   source node['squid']['source_tarball']
 end
