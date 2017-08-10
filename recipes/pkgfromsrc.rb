@@ -61,12 +61,10 @@ squiddir = "#{Chef::Config['file_cache_path']}/#{squidversion}"
 
 execute "./configure #{options}" do
   cwd squiddir
-  creates "#{squiddir}/Makefile"
 end
 
 execute 'make' do
   cwd squiddir
-  creates "#{squiddir}/tools/cachemgr.cgi"
 end
 
 execute 'make install' do
