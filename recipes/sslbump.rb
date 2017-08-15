@@ -26,10 +26,6 @@ execute "cat #{squidkey} #{squidcert} > #{squidcert}.ca" do
 end
 
 if node['squid']['use_service_discovery']
-  # This is for our homegrown service discovery cookbook.
-  # until this is open sourced, this won't work for other people.  :-(
-  include_recipe 'service_discovery'
-
   # write into service_discovery stuff
   ruby_block 'register this instance with service discovery cookbook' do
     block do
