@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@chef.io'
 license          'Apache-2.0'
 description      'Installs/configures squid as a simple caching proxy'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '3.1.5'
+version          '4.0.0'
 
 recipe 'squid::default', 'Installs and configures Squid.'
 
@@ -13,6 +13,7 @@ recipe 'squid::default', 'Installs and configures Squid.'
 end
 
 depends 'selinux_policy', '>= 1.0.0'
+depends 'service_discovery'
 
 source_url 'https://github.com/chef-cookbooks/squid'
 issues_url 'https://github.com/chef-cookbooks/squid/issues'
