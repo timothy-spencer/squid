@@ -27,13 +27,6 @@ end
 
 if node['squid']['use_service_discovery']
   # write into service_discovery stuff
-  ruby_block 'register this instance with service discovery cookbook' do
-    block do
-      ServiceDiscovery.register(node)
-    end
-    action :run
-  end
-
   publish_certificate 'sslbump' do
     cert_path squidcert
     suffix 'sslbump'
