@@ -76,7 +76,6 @@ default['squid']['ldap_authcredentialsttl'] = '1 minute' # Credentials TTL
 default['squid']['enable_ssl_bump']       = false
 default['squid']['sslbumpcert']           = '/etc/squid/bumpcert.pem'
 default['squid']['sslbumpkey']            = '/etc/squid/bumpkey.pem'
-default['squid']['use_service_discovery'] = false
 
 case node['platform_family']
 

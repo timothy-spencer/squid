@@ -25,7 +25,7 @@ execute "cat #{squidkey} #{squidcert} > #{squidcert}.ca" do
   creates "#{squidcert}.ca"
 end
 
-if node['squid']['use_service_discovery']
+if node.fetch("provisioner", {"auto-scaled" => false}).fetch("auto-scaled")
   # write into service_discovery stuff
   publish_certificate 'sslbump' do
     cert_path squidcert
