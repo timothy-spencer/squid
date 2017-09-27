@@ -8,7 +8,12 @@ execute 'apt-get update'
 package 'gnutls-bin'
 
 directory squidssldir
-template "#{squidssldir}/cert.cfg"
+template "#{squidssldir}/cert.cfg" do
+  variables ({
+    nodename: node['name']
+  })
+end
+ 
 
 execute "certtool --generate-privkey --outfile #{squidkey}" do
   cwd squidssldir
