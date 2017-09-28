@@ -10,7 +10,7 @@ package 'gnutls-bin'
 directory squidssldir
 template "#{squidssldir}/cert.cfg" do
   variables ({
-    nodename: node['name']
+    nodename: node.name
   })
 end
  
