@@ -49,7 +49,7 @@ module ChefSquidHelpers
   end
 
   def squid_service_name
-    if node['platform_family'] == 'debian' && node['platform_version'].to_i < 16
+    if node['platform_family'] == 'debian' && node['platform_version'].to_i < 16 || node['squid']['enable_ssl_bump']
       'squid3'
     else
       'squid'
